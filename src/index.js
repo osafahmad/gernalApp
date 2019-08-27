@@ -2,16 +2,17 @@
 import React from "react";
 import { createStackNavigator, createAppContainer, createDrawerNavigator, DrawerItems } from "react-navigation";
 
-import LoginScreen from "./screens/logIn/LogIn";
-import SignUpScreen from "./screens/signUp/SignUp";
+import SplashScreen from "./screens/splash/SplashScreen";
+import LoginScreen from "./screens/logIn/LogInScreen";
+import SignUpScreen from "./screens/signUp/SignUpScreen";
 
 const AppNavigator = createStackNavigator({
-
-    Login: { screen: LoginScreen },
+    Splash: { screen: SplashScreen },
+    LogIn: { screen: LoginScreen },
     SignUp: { screen: SignUpScreen },
 
 }, {
-        initialRouteName: "Login",
+        initialRouteName: "LogIn",
         mode: "card",
         headerMode: "none"
     });

@@ -51,7 +51,6 @@ export default function (state = INIT_STATE, action) {
                 ...state,
                 error: null,
                 loader: false,
-                user: action.payload
             }
             break;
 
@@ -78,7 +77,6 @@ export default function (state = INIT_STATE, action) {
                 ...state,
                 error: null,
                 loader: false,
-                user: action.payload
             }
             break;
 
@@ -105,7 +103,6 @@ export default function (state = INIT_STATE, action) {
                 ...state,
                 error: null,
                 loader: false,
-                user: action.payload
             }
             break;
 
