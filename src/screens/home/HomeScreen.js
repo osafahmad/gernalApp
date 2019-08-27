@@ -7,24 +7,16 @@ import {
     Text
 } from "react-native";
 
-export default class SplashScreen extends React.Component {
+export default class HomeScreen extends React.Component {
     constructor(props) {
         super(props);
-        setInterval(() => {
-            props.navigation.navigate("Home")
-        }, 1000)
+        
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.logoContainer}>
-                    <Image
-                        style={styles.image}
-                        source={require("../../assets/images/logo.png")}
-                        resizeMode="contain" />
-                </View>
-                <Text>Wellcome To Splash Screen</Text>
+                <Text>Home Screen</Text>
             </View>
         );
     }

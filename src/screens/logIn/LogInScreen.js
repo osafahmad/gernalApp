@@ -70,6 +70,7 @@ class LogInScreen extends Component {
 
     navigateToSignUp = () => {
         this.props.navigation.navigate("SignUp")
+        // this.props.navigation.navigate("Home")
     }
 
     render() {
@@ -95,7 +96,7 @@ class LogInScreen extends Component {
                                 component={renderField}
                                 name="email"
                                 placeholder="Enter Your Email"
-                            // ref="txtPassword"
+
                             />
                             <Field
                                 keyboardType="default"

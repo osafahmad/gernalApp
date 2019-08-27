@@ -61,7 +61,7 @@ const renderField = ({
             {touched &&
                 ((error &&
                     error === "Password lentgh must at least 6 characters"
-                    && <Text style={{color: 'red'}}>{error}</Text>))}
+                    && <Text style={{ color: 'red' }}>{error}</Text>))}
         </View>
     );
 };
@@ -107,7 +107,6 @@ class SignUpScreen extends Component {
                                 component={renderField}
                                 name="firstName"
                                 placeholder="Enter Your First Name"
-                            // ref="txtPassword"
                             />
                             <Field
                                 keyboardType="default"
@@ -115,7 +114,6 @@ class SignUpScreen extends Component {
                                 component={renderField}
                                 name="lastName"
                                 placeholder="Enter Your Last Name"
-                            // ref="txtPassword"
                             />
                             <Field
                                 keyboardType="email-address"
@@ -123,7 +121,6 @@ class SignUpScreen extends Component {
                                 component={renderField}
                                 name="email"
                                 placeholder="Enter Your Email"
-                            // ref="txtPassword"
                             />
                             <Field
                                 keyboardType="default"
