@@ -11,7 +11,7 @@ const AppNavigator = createStackNavigator({
     SignUp: { screen: SignUpScreen }
 
 }, {
-        initialRouteName: "Splash",
+        initialRouteName: "LogIn",
         mode: "card",
         headerMode: "none"
     });

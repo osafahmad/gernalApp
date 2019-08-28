@@ -1,4 +1,5 @@
 const Axios = require('axios');
+import urls from "../Config";
 // ---------------------****User Actions****-----------------------------
 
 //----------------------****Sign Up User****-----------------------------
@@ -23,7 +24,7 @@ function signUpUserFail(body) {
 export function signUpUser(userDara) {
     return async dispatch => {
         dispatch(signUpUserInit());
-        const url = `http://192.168.100.24:3000/notes`;
+        const url = urls.signUpUrl;
 
         try {
             const response = await Axios.post(url, userDara);
@@ -57,7 +58,7 @@ function logInUserFail(body) {
 export function logInUser(data) {
     return async dispatch => {
         dispatch(logInUserInit());
-        const url = `http://192.168.100.24:3000/notes`;
+        const url = urls.logInUrl;
 
         try {
             const response = await Axios.post(url, data);
@@ -91,7 +92,7 @@ function updateUserFail(body) {
 export function updateUser(data) {
     return async dispatch => {
         dispatch(updateUserInit());
-        const url = `http://192.168.100.24:3000/notes`;
+        const url = urls.signUpUrl;
 
         try {
             const response = await Axios.post(url, data);
@@ -125,7 +126,7 @@ function deleteUserFail(body) {
 export function deleteUser(data) {
     return async dispatch => {
         dispatch(deleteUserInit());
-        const url = `http://192.168.100.24:3000/notes`;
+        const url = urls.signUpUrl;
 
         try {
             const response = await Axios.post(url, data);

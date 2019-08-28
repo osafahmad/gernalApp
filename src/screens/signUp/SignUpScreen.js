@@ -7,11 +7,12 @@ import {
     Text,
     View,
     TextInput,
-    Button,
     ScrollView
 } from "react-native";
 import { Card } from "native-base";
+import Button from "../../components/buttons/Button";
 import { colors, metrics, fonts } from "../../styles";
+import { signUpUser } from "../../apis/userApis/UserApis";
 
 const validate = values => {
     const errors = {};
@@ -65,10 +66,9 @@ const renderField = ({
         </View>
     );
 };
-
-const signUpUser = (values, dispatch) => {
+const createUser = (values, dispatch) => {
     console.log('valsss', values)
-    // dispatch(signIn(values));
+    dispatch(signUpUser(values));
 };
 
 class SignUpScreen extends Component {
@@ -83,6 +83,7 @@ class SignUpScreen extends Component {
     navigateToLogIn = () => {
         this.props.navigation.navigate("LogIn")
     }
+    
 
     render() {
         const { handleSubmit } = this.props;
@@ -133,10 +134,18 @@ class SignUpScreen extends Component {
                             />
                             <View style={styles.buttonsContainer}>
                                 <View>
-                                    <Button title="Create Account" onPress={handleSubmit(signUpUser)} />
+                                    <Button
+                                        btnStyle={styles.btnStyle}
+                                        title={"Create Account"}
+                                        titleColor={"#ffff"}
+                                        onPress={handleSubmit(createUser)} />
                                 </View>
                                 <View style={{ marginTop: metrics.smallMargin }}>
-                                    <Button title="Already Have An Account" onPress={this.navigateToLogIn} />
+                                    <Button
+                                        btnStyle={styles.btnStyle}
+                                        title={"Already Have An Account"}
+                                        titleColor={"#ffff"}
+                                        onPress={this.navigateToLogIn} />
                                 </View>
                             </View>
 
@@ -150,12 +159,15 @@ class SignUpScreen extends Component {
 const SignUpForm = reduxForm({
     form: "signUp", // a unique identifier for this form
     validate,
-    signUpUser
+    createUser
 })(SignUpScreen);
 
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ signUpUser }, dispatch);
+}
 export default connect(
     null,
-    null
+    mapDispatchToProps
 )(SignUpForm);
 
 const styles = StyleSheet.create({
@@ -183,5 +195,11 @@ const styles = StyleSheet.create({
     },
     buttonsContainer: {
         marginTop: metrics.smallMargin
+    },
+    btnStyle: {
+        borderRadius: metrics.deviceWidth * 0.08,
+        backgroundColor: colors.appBlue,
+        width: metrics.deviceWidth * 0.8,
+        height: metrics.deviceWidth * 0.10
     }
 })

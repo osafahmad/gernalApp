@@ -11,7 +11,8 @@ const colors = {
   appYellow: "#FFB900",
   basicTextGrey: "#95989A",
   basicLightGrey: "#95989A",
-  basicDarkGrey: "#5A5A5A"
+  basicDarkGrey: "#5A5A5A",
+  basicButtonColor: "#6E81F9"
 };
 
 export default colors;
