@@ -7,11 +7,12 @@ import {
     Text,
     View,
     TextInput,
-    Button,
     ScrollView
 } from "react-native";
 import { Card } from "native-base";
+import Button from "../../components/buttons/Button";
 import { colors, metrics, fonts } from "../../styles";
+import ErrorPopUp from "../../components/popups/ErrorPopUp";
 
 const validate = values => {
     const errors = {};
@@ -63,16 +64,21 @@ class LogInScreen extends Component {
     constructor(props) {
         super(props);
     }
-
+    state = {
+        btnPress: false
+    }
     componentDidMount() {
         // this.props.reset();
     }
 
     navigateToSignUp = () => {
         this.props.navigation.navigate("SignUp")
-        // this.props.navigation.navigate("Home")
+        // this.props.navigation.navigate("Home"),
+        // this.setState({ btnPress: true })
     }
-
+    closePopUp = () => {
+        this.setState({ btnPress: false })
+    }
     render() {
         const { handleSubmit } = this.props;
         return (
@@ -108,15 +114,29 @@ class LogInScreen extends Component {
                             />
                             <View style={styles.buttonsContainer}>
                                 <View>
-                                    <Button title="LogIn" onPress={handleSubmit(submitLogin)} />
+                                    <Button
+                                        btnStyle={styles.btnStyle}
+                                        title={"LogIn"}
+                                        titleColor={"#ffff"}
+                                        onPress={handleSubmit(submitLogin)} />
                                 </View>
                                 <View style={{ marginTop: metrics.smallMargin }}>
-                                    <Button title="Create Account" onPress={this.navigateToSignUp} />
+                                    <Button
+                                        btnStyle={styles.btnStyle}
+                                        title={"Create Account"}
+                                        titleColor={"#ffff"}
+                                        onPress={this.navigateToSignUp} />
                                 </View>
                             </View>
 
                         </Card>
                     </View>
+                    {
+                        this.state.btnPress &&
+                        <ErrorPopUp
+                            onClose={this.closePopUp}
+                        />
+                    }
                 </ScrollView>
             </View>
         );
@@ -157,6 +177,14 @@ const styles = StyleSheet.create({
         fontSize: fonts.size.regular
     },
     buttonsContainer: {
-        marginTop: metrics.smallMargin
+        marginTop: metrics.smallMargin,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    btnStyle: {
+        borderRadius: metrics.deviceWidth * 0.08,
+        backgroundColor: colors.appBlue,
+        width: metrics.deviceWidth * 0.8,
+        height: metrics.deviceWidth * 0.10
     }
 })
