@@ -191,7 +191,8 @@ const styles = StyleSheet.create({
     textInput: {
         alignSelf: "stretch",
         borderBottomWidth: metrics.border.regularBorder,
-        fontSize: fonts.size.regular
+        fontSize: fonts.size.regular,
+        height: 40
     },
     buttonsContainer: {
         marginTop: metrics.smallMargin

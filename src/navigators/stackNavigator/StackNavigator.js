@@ -1,6 +1,7 @@
 
 import React from "react";
-import { createStackNavigator, createAppContainer, createDrawerNavigator, DrawerItems } from "react-navigation";
+import ReactNavigation,{ createStackNavigator, createAppContainer, createDrawerNavigator, DrawerItems } from "react-navigation";
+import {NavigationConfig} from "../stackViewTransitionConfigs/TransitionConfig"; //customs animations
 
 import SplashScreen from "../../screens/splash/SplashScreen";
 import LoginScreen from "../../screens/logIn/LogInScreen";
@@ -13,7 +14,12 @@ const AppNavigator = createStackNavigator({
 }, {
         initialRouteName: "LogIn",
         mode: "card",
-        headerMode: "none"
-    });
+        headerMode: "none",
+        transitionConfig: NavigationConfig
+        
+        //the fllowing is for left to right
+    //   transitionConfig: () =>
+    //       ReactNavigation.StackViewTransitionConfigs.SlideFromRightIOS
+      });
 // const AppContainer = createAppContainer(AppNavigator);
 export default AppNavigator;
